@@ -1,0 +1,133 @@
+// C:\Program Files\PostgreSQL\13\bin
+// psql -U postgres
+CREATE DATABASE distance_education;
+// \c distance_education подключиться к бд
+// \d table_name вывести поля таблицы
+
+//SELECT table_name FROM information_schema.tables
+WHERE table_schema NOT IN ('information_schema', 'pg_catalog')
+AND table_schema IN('public', 'myschema');
+
+// groups table
+CREATE TABLE IF NOT EXISTS groups (
+	id SERIAL PRIMARY KEY,
+	name text UNIQUE
+);
+
+// create type role
+CREATE TYPE role_type AS ENUM ('admin', 'teacher', 'student');
+
+// users table
+CREATE TABLE IF NOT EXISTS users (
+	id SERIAL PRIMARY KEY,
+	login text,
+	password text,
+	google_email text,
+	role role_type
+);
+
+// students table
+CREATE TABLE IF NOT EXISTS students (
+	id SERIAL PRIMARY KEY,
+	full_name text,
+	short_name text,
+	group_id integer,
+	user_id integer,
+	CONSTRAINT group_id_fkey FOREIGN KEY(group_id)
+	REFERENCES groups(id),
+	CONSTRAINT user_id_fkey FOREIGN KEY(user_id)
+	REFERENCES users(id)
+);
+
+// teachers table
+CREATE TABLE IF NOT EXISTS teachers (
+	id SERIAL PRIMARY KEY,
+	full_name text,
+	short_name text,
+	user_id integer,
+	CONSTRAINT user_id_fkey FOREIGN KEY(user_id)
+	REFERENCES users(id)
+);
+
+// courses table
+CREATE TABLE IF NOT EXISTS courses (
+	id SERIAL PRIMARY KEY,
+	name text
+);
+
+// templates table
+CREATE TABLE IF NOT EXISTS templates (
+	id SERIAL PRIMARY KEY,
+	name text,
+	description text,
+	document_id text,
+	link text,
+	teacher_id integer,
+	CONSTRAINT teacher_id_fkey FOREIGN KEY(teacher_id)
+	REFERENCES teachers(id)
+);
+
+// works table
+CREATE TABLE IF NOT EXISTS works (
+	id SERIAL PRIMARY KEY,
+	name text,
+	complited boolean,
+	deadline timestamp without time zone,
+	created_at timestamp without time zone DEFAULT now(),
+	finished_at timestamp without time zone,
+	document_id text,
+	template_id integer,
+	student_id integer,
+	course_id integer,
+	CONSTRAINT template_id_fkey FOREIGN KEY(template_id)
+	REFERENCES templates(id),
+	CONSTRAINT student_id_fkey FOREIGN KEY(student_id)
+	REFERENCES students(id),
+	CONSTRAINT course_id_fkey FOREIGN KEY(course_id)
+	REFERENCES courses(id)
+); 
+
+// activities table
+CREATE TABLE IF NOT EXISTS activities (
+	id SERIAL PRIMARY KEY,
+	time timestamp without time zone,
+	work_id integer,
+	CONSTRAINT work_id_fkey FOREIGN KEY(work_id)
+	REFERENCES works(id)
+);
+
+// teachers_courses linking table
+CREATE TABLE IF NOT EXISTS teachers_courses (
+	teacher_id integer,
+	course_id integer,
+	CONSTRAINT teacher_id_fkey FOREIGN KEY(teacher_id)
+	REFERENCES teachers(id),
+	CONSTRAINT course_id_fkey FOREIGN KEY(course_id)
+	REFERENCES courses(id)
+);
+
+// groups_courses linking table
+CREATE TABLE IF NOT EXISTS groups_courses (
+	group_id integer,
+	course_id integer,
+	CONSTRAINT group_id_fkey FOREIGN KEY(group_id)
+	REFERENCES groups(id),
+	CONSTRAINT course_id_fkey FOREIGN KEY(course_id)
+	REFERENCES courses(id)
+);
+
+DROP TABLE groups_courses;
+DROP TABLE teachers_courses;
+DROP TABLE activities;
+DROP TABLE works;
+DROP TABLE templates;
+DROP TABLE courses;
+DROP TABLE teachers;
+DROP TABLE students;
+DROP TABLE users;
+DROP TABLE groups;
+
+
+ALTER TABLE users DROP CONSTRAINT users_google_email_key;
+ALTER TABLE users DROP CONSTRAINT users_password_key;
+ALTER TABLE users DROP CONSTRAINT users_login_key;

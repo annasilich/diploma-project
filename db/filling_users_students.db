@@ -1,0 +1,60 @@
+// users (id, login, password, google-email, role)
+// 1 group with 17 students 
+// create students
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('aliev.y.a@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('bachinin.d.a@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('bezruk.v.v@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('bukin.a.a2@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('vikulova.n.d@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('glazkov.m.yu@edu.mirea.ru', '123456', '1337mrspanky@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('golovin.e.v@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('ibragimova.c.t@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('kiryakov.a.s2@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('kubanov.a.p@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('malafeev.a.e@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('mixalevich.k.a@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('mishina.i.a@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('popova.e.y2@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('semyonov.g.z@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('silich.a.e@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('xodarchenko.v.v@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('xoroshev.a.v@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+
+

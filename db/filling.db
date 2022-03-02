@@ -1,0 +1,143 @@
+// \c distance_education подключиться к бд
+// users students groups teachers courses templates works activities 
+// students_courses groups_courses teachers_courses
+
+// users (id, login, password, google-email, role)
+// 1 admin, 2 teachers, 1 group with 18 students => 20
+// create user for admin
+pool.query(`INSERT INTO users(login, password, google-email, role) 
+	VALUES ('admin', 'admin', 'annsilich@gmail.com' 'admin')`)
+
+// create user for teacher
+pool.query(`INSERT INTO users(login, password, google-email, role) 
+	VALUES ('basok@mirea.ru', '123456', 'annsilich@gmail.com' 'teacher')`)
+
+// create user for teacher
+pool.query(`INSERT INTO users(login, password, google-email, role) 
+	VALUES ('ovchinnikov_m@mirea.ru', '123456', 'annsilich@gmail.com' 'teacher')`)
+
+// groups (id, name)
+// create group
+pool.query(`INSERT INTO groups(name) 
+	VALUES ('ИКБО-11-17')`)
+
+// teachers (id, full_name, short_name, user_id)
+// create teacher
+pool.query(`INSERT INTO teachers(full_name, short_name, user_id) 
+	VALUES ('Басок Борис Моисеевич', 'Басок Б.М.', 2)`)
+
+// create teacher
+pool.query(`INSERT INTO teachers(full_name, short_name, user_id) 
+	VALUES ('Овчинников Михаил Андреевич', 'Овчинников М.А.', 3)`)
+
+// courses (id, name)
+// create course
+pool.query(`INSERT INTO courses(name) 
+	VALUES ('Тестирование и отладка программного обеспечения')`)
+
+// create course
+pool.query(`INSERT INTO courses(name) 
+	VALUES ('Оценка качества программного обеспечения')`)
+
+// create course
+pool.query(`INSERT INTO courses(name) 
+	VALUES ('Проектирование и эксплуатация больших гетерогенных программных систем')`)
+
+// linking tables
+// groups_courses (group_id, course_id)
+pool.query(`INSERT INTO groups_courses(group_id, course_id) 
+	VALUES (1, 1)`)
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id) 
+	VALUES (1, 2)`)
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id) 
+	VALUES (1, 3)`)
+
+// teachers_courses (teacher_id, course_id)
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id) 
+	VALUES (1, 1)`)
+
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id) 
+	VALUES (1, 2)`)
+
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id) 
+	VALUES (2, 3)`)
+
+// templates (id, name, description, document_id, link, teacher_id)
+pool.query(`INSERT INTO templates(name, description, document_id, link, teacher_id) 
+	VALUES ('Шаблон по дисциплине «Тестирование и отладка ПО»', 
+	'Для выполнения практических работ', 
+	'1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB',
+	'https://drive.google.com/file/d/1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB/view?usp=sharing',
+	1)`
+)
+
+pool.query(`INSERT INTO templates(name, link, document_id, teacher_id) 
+	VALUES ('Шаблон по дисциплине «Оценка качества ПО»', 
+	'1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB',
+	'https://drive.google.com/file/d/1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB/view?usp=sharing',
+	1)`
+)
+
+pool.query(`INSERT INTO templates(name, link, document_id, teacher_id) 
+	VALUES ('Шаблон по дисциплине «Проектирование и эксплуатация больших гетерогенных программных систем»', 
+	'1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB',
+	'https://drive.google.com/file/d/1n56O1ivlBibwVB9VqV-na2-EF1rvoLdB/view?usp=sharing',
+	1)`
+)
+
+/*
+pool.query(`INSERT INTO works(name, complited, 
+	deadline, created_at, document_id, template_id, student_id, course_id) 
+	VALUES ('Практическая работа 1', false, "2021-05-25T18:00:00.268Z",
+	"2021-05-17T09:10:05.268Z", "1qdtlXNxdumM2aaeXURZzC0uUWnK934vN",
+	 3, 19, 1)`) 
+
+pool.query(`INSERT INTO activities(time, work_id)
+	VALUES ("2021-05-17T09:10:03.180Z",56)`) 
+
+pool.query(`INSERT INTO activities(time, work_id)
+	VALUES ("2021-05-17T09:17:26.793Z",56)`) 
+
+pool.query(`INSERT INTO activities(time, work_id)
+	VALUES ("2021-05-17T09:17:35.362Z",56)`) 
+
+pool.query(`INSERT INTO activities(time, work_id)
+	VALUES ("2021-05-17T09:25:25.792Z",56)`) 
+
+pool.query(`INSERT INTO activities(time, work_id)
+	VALUES ("2021-05-17T09:29:07.932Z",56)`) 
+
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id)
+	VALUES (1, 1)`) 
+
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id)
+	VALUES (1, 2)`) 
+
+pool.query(`INSERT INTO teachers_courses(teacher_id, course_id)
+	VALUES (2, 3)`) 
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id)
+	VALUES (1, 1)`) 
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id)
+	VALUES (1, 2)`) 
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id)
+	VALUES (1, 3)`) 
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id)
+	VALUES (2, 1)`) 
+
+pool.query(`INSERT INTO groups_courses(group_id, course_id)
+	VALUES (2, 2)`) 
+*/
+
+/*
+pool.query(`INSERT INTO users(login, password, google_email, role) 
+	VALUES ('belousov.i.s2@edu.mirea.ru', '123456', 'annsilich@gmail.com', 'student')`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Белоусов Иван Сергеевич', 'Белоусов И.С.', 2, 24)`)
+*/

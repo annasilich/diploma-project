@@ -1,0 +1,54 @@
+// students (id, full_name, short_name, group_id, user_id)
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Алиев Юнус Алиевич', 'Алиев Ю.А.', 1, 4)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Бачинин Дмитрий Александрович', 'Бачини Д.А.', 1, 5)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Безрук Владислав Вячеславович', 'Безрук В.В.', 1, 6)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Букин Александр Александрович', 'Букин А.А.', 1, 7)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Викулова Наталья Денисовна', 'Викулова Н.Д.', 1, 8)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Глазков Матвей Юрьевич', 'Глазков М.Ю.', 1, 9)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Головин Евгений Валерьевич', 'Головин Е.В.', 1, 10)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Ибрагимова Чулпан Тимуровна', 'Ибрагимова Ч.Т.', 1, 11)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Кирьяков Александр Сергеевич', 'Кирьяков А.С.', 1, 12)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Кубанов Александр Павлович', 'Кубанов А.П.', 1, 13)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Малафеев Артем Евгеньевич', 'Малафеев А.Е.', 1, 14)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Михалевич Кирилл Амарович', 'Михалевич К.А.', 1, 15)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Мишина Ирина Алексеевна', 'Мишина И.А.', 1, 16)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Попова Елена Юрьевна', 'Попова Е.Ю.', 1, 17)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Семёнов Георгий Заалович', 'Семёнов Г.З.', 1, 18)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Силич Анна Евгеньевна', 'Силич А.Е.', 1, 19)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Ходарченко Василий Викторович', 'Ходарченко В.В.', 1, 20)`)
+
+pool.query(`INSERT INTO students(full_name, short_name, group_id, user_id) 
+	VALUES ('Хорошев Андрей Владимирович', 'Хорошев А.В.', 1, 21)`)
